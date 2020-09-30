@@ -1,0 +1,59 @@
+.homepage-main {
+  font-family: sans-serif;
+}
+.header {
+  text-align: left;
+  font-size: 2rem;
+  z-index: 2;
+  font-weight: 800;
+  padding-top: 20px;
+  margin-left: 30px;
+}
+.header-border {
+  border: 0.5px solid;
+  padding: 5px;
+  width: fit-content;
+  cursor: pointer;
+}
+.I-of-iREC {
+  color: #f55148;
+}
+.R-of-iREC {
+  color: #0f3796;
+}
+.E-of-iREC {
+  color: #02e787;
+}
+.C-of-iREC {
+  color: #ffcb39;
+}
+.sidenav {
+  height: 100%;
+  width: 140px;
+  position: fixed;
+  z-index: 1;
+  top: 80px;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 1rem;
+  color: #818181;
+  display: block;
+  margin: 30px 0px;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav a:active,
+.sidenav a:focus {
+  color: black;
+  background-color: #f1f1f1;
+}
