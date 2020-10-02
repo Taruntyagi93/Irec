@@ -2,17 +2,15 @@ import React, { Component } from "react";
 import Select from "react-select";
 import Axios from "axios";
 import "./awareness.css";
-import JuiceBox from "../../assest/images/juiceBox.jpg";
-import JuiceBox2 from "../../assest/images/juiceBox.png";
-import JuiceBox3 from "../../assest/images/juiceBox2.jpg";
-import JuiceBox4 from "../../assest/images/juiceBox2.png";
+import JuiceBox from "../../assest/images/juiceBox.png";
 
 class Awareness extends Component {
   state = {
     options: {},
     cards: [],
+    stopedPromotions: [],
     selectedValue: {},
-    images: [JuiceBox, JuiceBox2, JuiceBox3, JuiceBox4],
+    images: [JuiceBox],
   };
 
   getRules = async () => {
@@ -58,35 +56,52 @@ class Awareness extends Component {
   };
 
   awarenessStop = async (e) => {
+    let stopedPromotions = [...this.state.stopedPromotions, e];
     let cards = [...this.state.cards];
     let objIndex = cards.findIndex((obj) => obj.value === e.value);
     cards[objIndex].three = false;
     cards[objIndex].two = false;
     await this.setState({
       cards,
+      stopedPromotions,
     });
+    localStorage.setItem(
+      "awarenessArray",
+      JSON.stringify(this.state.stopedPromotions)
+    );
   };
 
   onChange = async (value) => {
     let obj = {};
+    let sale = Math.random() * 100;
     const index = Math.floor(Math.random() * this.state.images.length);
-    console.log(index);
     obj["value"] = value.value;
     obj["label"] = value.label;
     obj["three"] = "";
     obj["two"] = "";
-    obj["img"] = index;
+    obj["img"] = 0;
+    obj["type"] = "awareness";
+    obj["sales"] = sale;
     await this.setState({
       selectedValue: obj,
     });
   };
 
   removeCard = async (e) => {
+    console.log(e);
+    let stopedPromotions = [...this.state.stopedPromotions, e];
+    console.log(stopedPromotions);
     this.setState({
+      stopedPromotions,
       cards: this.state.cards.filter(function (element) {
         return element.value !== e.value;
       }),
     });
+    console.log("updated", stopedPromotions);
+    localStorage.setItem(
+      "awarenessArray",
+      JSON.stringify(this.state.stopedPromotions)
+    );
   };
 
   compare = () => {
@@ -175,7 +190,7 @@ class Awareness extends Component {
                         alt=""
                       ></img>
                     </div>
-                    <div className="col-8 padding-left">
+                    <div className="col-8 padding-left image-text">
                       <span className="image-text">{card.label}</span>
                     </div>
                   </div>

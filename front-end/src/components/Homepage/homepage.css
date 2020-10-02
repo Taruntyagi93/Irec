@@ -10,23 +10,14 @@
   margin-left: 30px;
 }
 .header-border {
-  border: 0.5px solid;
   padding: 5px;
   width: fit-content;
   cursor: pointer;
 }
-.I-of-iREC {
-  color: #f55148;
-}
-.R-of-iREC {
+.iREC {
   color: #0f3796;
 }
-.E-of-iREC {
-  color: #02e787;
-}
-.C-of-iREC {
-  color: #ffcb39;
-}
+
 .sidenav {
   height: 100%;
   width: 140px;
@@ -34,9 +25,10 @@
   z-index: 1;
   top: 80px;
   left: 0;
-  background-color: #111;
+  background-color: rgb(39, 39, 39);
   overflow-x: hidden;
   padding-top: 20px;
+  border-radius: 0px 10px;
 }
 
 .sidenav a {

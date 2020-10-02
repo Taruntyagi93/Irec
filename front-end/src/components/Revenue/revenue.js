@@ -1,18 +1,16 @@
 import React, { Component } from "react";
 import Select from "react-select";
 import Axios from "axios";
-import JuiceBox from "../../assest/images/juiceBox.jpg";
-import JuiceBox2 from "../../assest/images/juiceBox.png";
-import JuiceBox3 from "../../assest/images/juiceBox2.jpg";
-import JuiceBox4 from "../../assest/images/juiceBox2.png";
+import JuiceBox from "../../assest/images/juiceBox.png";
 import "./revenue.css";
 import emptyCart from "../../assest/images/Cart-empty.gif";
 
-class Awareness extends Component {
+class Revenue extends Component {
   state = {
     options: {},
-    images: [JuiceBox, JuiceBox2, JuiceBox3, JuiceBox4],
+    images: [JuiceBox],
     cards: [],
+    stopedPromotions: [],
     cards2: [],
     selectedValue: {},
     selectedValue2: {},
@@ -43,14 +41,20 @@ class Awareness extends Component {
   onChange = async (value) => {
     let obj = {};
     let obj2 = {};
+    let sale = Math.random() * 100;
+    let sale2 = Math.random() * 100;
     const index = Math.floor(Math.random() * this.state.images.length);
     const index2 = Math.floor(Math.random() * this.state.images.length);
     obj["value"] = value.value;
     obj["label"] = value.value;
-    obj["img"] = index;
+    obj["img"] = 0;
+    obj["sales"] = sale;
+    obj["type"] = "revenue";
     obj2["value"] = value.label;
     obj2["label"] = value.value;
-    obj2["img"] = index2;
+    obj2["img"] = 0;
+    obj2["sales"] = sale2;
+    obj2["type"] = "revenue";
     await this.setState({
       selectedValue: obj,
       selectedValue2: obj2,
@@ -58,6 +62,7 @@ class Awareness extends Component {
   };
 
   removeCard = async (e) => {
+    let stopedPromotions = [...this.state.stopedPromotions, e];
     this.setState({
       cards2: this.state.cards2.filter(function (element) {
         return element.value !== e.value;
@@ -65,7 +70,12 @@ class Awareness extends Component {
       cards: this.state.cards.filter(function (element) {
         return element.value !== e.label;
       }),
+      stopedPromotions,
     });
+    localStorage.setItem(
+      "revenueArray",
+      JSON.stringify(this.state.stopedPromotions)
+    );
   };
 
   removeAndAddToCart = async (e) => {
@@ -158,8 +168,10 @@ class Awareness extends Component {
                           alt=""
                         ></img>
                       </div>
-                      <div className="col-6 revenue-image-text-main">
-                        <span className="revenue-image-text">{card.value}</span>
+                      <div className="col-6 revenue-image-text-main image-text">
+                        <span className="revenue-image-text image-text">
+                          {card.value}
+                        </span>
                       </div>
                       <div className="col-2">
                         <button
@@ -202,8 +214,8 @@ class Awareness extends Component {
                             alt=""
                           ></img>
                         </div>
-                        <div className="col-6 revenue-image-text-main">
-                          <span className="revenue-image-text">
+                        <div className="col-6 revenue-image-text-main image-text">
+                          <span className="revenue-image-text image-text">
                             {card.value}
                           </span>
                         </div>
@@ -238,4 +250,4 @@ class Awareness extends Component {
   }
 }
 
-export default Awareness;
+export default Revenue;

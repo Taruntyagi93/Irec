@@ -19,7 +19,7 @@ def hello():
 class Rules(Resource):
     def get(self):
         data = pd.read_csv(
-            "/Users/taruntyagi/Desktop/Irec/backend/rules.csv")
+            "/Users/taruntyagi/Desktop/git/Irec/backend/rules.csv")
         data.dropna(inplace=True)
         new = data["rules"].str.split("=>", n=1, expand=True)
         data["LHS"] = new[0]

@@ -9,10 +9,7 @@ class homepage extends Component {
       <div className="homepage-main">
         <h2 className="header">
           <div className="header-border">
-            <span className="I-of-iREC">i</span>
-            <span className="R-of-iREC">R</span>
-            <span className="E-of-iREC">e</span>
-            <span className="C-of-iREC">c</span>
+            <span className="iREC">iRec</span>
           </div>
         </h2>
 
@@ -28,7 +25,7 @@ class homepage extends Component {
               <NavLink to="/revenue">Revenue</NavLink>
             </span>
             <span>
-              <NavLink to="/analytics">Analytics</NavLink>
+              <NavLink to="/history">History</NavLink>
             </span>
           </div>
         </div>

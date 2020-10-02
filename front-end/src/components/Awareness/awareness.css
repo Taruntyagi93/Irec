@@ -70,6 +70,7 @@
 }
 .image-text {
   word-wrap: break-word;
+  margin-top: 5px;
 }
 .awareness-button {
   font-size: 15px;
