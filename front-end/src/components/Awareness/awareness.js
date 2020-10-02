@@ -165,8 +165,8 @@ class Awareness extends Component {
                       <p className="awareness-content-head">Awareness</p>
                     </div>
                     <div className="sales-content-tabName col-5">
-                      <p className="sales-tabName-IteamDetails">
-                        Iteam Deatils
+                      <p className="sales-tabName-ItemsDetails">
+                        Items Deatils
                       </p>
                     </div>
                   </div>

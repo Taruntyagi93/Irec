@@ -94,8 +94,8 @@ class History extends Component {
                     </div>
                     <div className="col-3"></div>
                     <div className="sales-content-tabName col-6">
-                      <p className="sales-tabName-IteamDetails col-12">
-                        Iteam Deatils
+                      <p className="sales-tabName-ItemsDetails col-12">
+                        Items Deatils
                       </p>
                     </div>
                   </div>

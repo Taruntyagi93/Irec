@@ -113,8 +113,8 @@ class Sales extends Component {
                       <p className="sales-content-head">Sales</p>
                     </div>
                     <div className="sales-content-tabName col-5">
-                      <p className="sales-tabName-IteamDetails">
-                        Iteam Deatils
+                      <p className="sales-tabName-ItemsDetails">
+                        Items Deatils
                       </p>
                     </div>
                   </div>
